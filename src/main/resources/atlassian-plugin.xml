@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="xmlexportfilter"/>
+  <!-- add our web resources -->
+  <web-resource key="xmlexportfilter-resources" name="xmlexportfilter Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="xmlexportfilter.css" location="/css/xmlexportfilter.css"/>
+    <resource type="download" name="xmlexportfilter.js" location="/js/xmlexportfilter.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>xmlexportfilter</context>
+  </web-resource>
+  <search-request-view name="Simple Search View" i18n-name-key="simple-search-view.name" key="simple-search-view" class="ru.hlynov.oit.jira.search.SimpleSearchView" fileExtension="html" contentType="text/html">
+    <description key="simple-search-view.description">The Simple Search View Plugin</description>
+    <resource name="header" type="velocity" location="/templates/search/simple-search-view/header.vm"/>
+    <resource name="singleissue" type="velocity" location="/templates/search/simple-search-view/singleissue.vm"/>
+    <resource name="footer" type="velocity" location="/templates/search/simple-search-view/footer.vm"/>
+    <order>10</order>
+  </search-request-view>
+</atlassian-plugin>

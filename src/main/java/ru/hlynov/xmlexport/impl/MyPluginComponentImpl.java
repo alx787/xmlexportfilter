@@ -1,9 +1,9 @@
-package ru.hlynov.oit.impl;
+package ru.hlynov.xmlexport.impl;
 
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.ApplicationProperties;
-import ru.hlynov.oit.api.MyPluginComponent;
+import ru.hlynov.xmlexport.api.MyPluginComponent;
 
 import javax.inject.Inject;
 import javax.inject.Named;

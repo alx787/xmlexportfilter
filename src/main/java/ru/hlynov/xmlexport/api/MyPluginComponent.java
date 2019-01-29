@@ -1,4 +1,4 @@
-package ru.hlynov.oit.api;
+package ru.hlynov.xmlexport.api;
 
 public interface MyPluginComponent
 {

@@ -1,4 +1,4 @@
-package ru.hlynov.oit.jira.search;
+package ru.hlynov.xmlexport.jira.search;
 
 import com.atlassian.jira.issue.search.SearchException;
 import com.atlassian.jira.issue.search.SearchRequest;

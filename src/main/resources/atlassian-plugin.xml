@@ -18,7 +18,7 @@
     <resource type="download" name="images/" location="/images"/>
     <context>xmlexportfilter</context>
   </web-resource>
-  <search-request-view name="Simple Search View" i18n-name-key="simple-search-view.name" key="simple-search-view" class="ru.hlynov.oit.jira.search.SimpleSearchView" fileExtension="html" contentType="text/html">
+  <search-request-view name="Simple Search View" i18n-name-key="simple-search-view.name" key="simple-search-view" class="ru.hlynov.xmlexport.jira.search.SimpleSearchView" fileExtension="html" contentType="text/html">
     <description key="simple-search-view.description">The Simple Search View Plugin</description>
     <resource name="header" type="velocity" location="/templates/search/simple-search-view/header.vm"/>
     <resource name="singleissue" type="velocity" location="/templates/search/simple-search-view/singleissue.vm"/>

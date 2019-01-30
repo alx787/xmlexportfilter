@@ -42,10 +42,10 @@
             <scope>provided</scope>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.atlassian.plugin</groupId>-->
-            <!--<artifactId>atlassian-spring-scanner-runtime</artifactId>-->
-            <!--<version>${atlassian.spring.scanner.version}</version>-->
-            <!--<scope>runtime</scope>-->
+        <!--<groupId>com.atlassian.plugin</groupId>-->
+        <!--<artifactId>atlassian-spring-scanner-runtime</artifactId>-->
+        <!--<version>${atlassian.spring.scanner.version}</version>-->
+        <!--<scope>runtime</scope>-->
         <!--</dependency>-->
         <dependency>
             <groupId>javax.inject</groupId>
@@ -85,6 +85,31 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.8.5</version>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.aspose</groupId>-->
+        <!--<artifactId>aspose-cells</artifactId>-->
+        <!--<version>18.9</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>/home/alex/distr/aspose/aspose-cells-18.9.jar</systemPath>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.1.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -18,11 +18,15 @@
     <resource type="download" name="images/" location="/images"/>
     <context>xmlexportfilter</context>
   </web-resource>
-  <search-request-view name="Simple Search View" i18n-name-key="simple-search-view.name" key="simple-search-view" class="ru.hlynov.xmlexport.jira.search.SimpleSearchView" fileExtension="html" contentType="text/html">
+  <search-request-view name="Simple Search View" i18n-name-key="simple-search-view.name" key="simple-search-view" class="ru.hlynov.xmlexport.search.SimpleSearchView" fileExtension="html" contentType="text/html">
     <description key="simple-search-view.description">The Simple Search View Plugin</description>
     <resource name="header" type="velocity" location="/templates/search/simple-search-view/header.vm"/>
     <resource name="singleissue" type="velocity" location="/templates/search/simple-search-view/singleissue.vm"/>
     <resource name="footer" type="velocity" location="/templates/search/simple-search-view/footer.vm"/>
     <order>10</order>
   </search-request-view>
+  <servlet-filter name="Search Request Interceptor" i18n-name-key="search-request-interceptor.name" key="search-request-interceptor" class="ru.hlynov.xmlexport.servlet.filter.SearchRequestInterceptor" location="before-dispatch" weight="100">
+    <description key="search-request-interceptor.description">The Search Request Interceptor Plugin</description>
+    <url-pattern>/sr/ru.hlynov.oit.xmlexportfilter:simple-search-view/*</url-pattern>
+  </servlet-filter>
 </atlassian-plugin>

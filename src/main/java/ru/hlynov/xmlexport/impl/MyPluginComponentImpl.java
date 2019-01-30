@@ -8,6 +8,7 @@ import ru.hlynov.xmlexport.api.MyPluginComponent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
 @ExportAsService ({MyPluginComponent.class})
 @Named ("myPluginComponent")
 public class MyPluginComponentImpl implements MyPluginComponent

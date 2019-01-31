@@ -69,7 +69,7 @@ public class SimpleSearchView extends AbstractSearchRequestView {
 
 
 
-        String filePath = "\\home\\alex\\123.xlsx";
+        String filePath = "/home/alex/123.xlsx";
         File downloadFile = new File(filePath);
         try {
             FileInputStream inStream = new FileInputStream(downloadFile);
@@ -81,9 +81,10 @@ public class SimpleSearchView extends AbstractSearchRequestView {
         response.setContentLength((int) downloadFile.length());
 
         // forces download
-        String headerKey = "Content-Disposition";
-        String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
-        response.setHeader(headerKey, headerValue);
+//        String headerKey = "Content-Disposition";
+//        String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
+//        response.addHeader("Content-Disposition", String.format("attachment;filename=\"%s\"", downloadFile.getName()));
+        response.addHeader("Content-Disposition", "attachment;filename=\"" + downloadFile.getName() + "\"");
 
 
         FileInputStream inStream = null;
@@ -92,6 +93,8 @@ public class SimpleSearchView extends AbstractSearchRequestView {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
 
 
         // obtains response's output stream

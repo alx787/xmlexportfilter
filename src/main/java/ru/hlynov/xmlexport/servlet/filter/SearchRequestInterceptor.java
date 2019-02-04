@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 
 //import javax.servlet.*;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.io.FileNotFoundException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -34,23 +38,34 @@ public class SearchRequestInterceptor implements Filter{
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException,ServletException{
         //do some custom handling here
+
+
         HttpServletRequest filtRequest = (HttpServletRequest)request;
         HttpServletResponse filtResponse = (HttpServletResponse)response;
-        try {
-            REQUEST_HOLDER.set(filtRequest);
-            HttpServletResponse wrappedResponse = new XporterHTTPResponseWrapper(filtResponse);
-            RESPONSE_HOLDER.set(wrappedResponse);
 
-            chain.doFilter(request, wrappedResponse);
-        } finally {
-            REQUEST_HOLDER.remove();
-            RESPONSE_HOLDER.remove();
-        }
+
+
+        filtResponse.sendRedirect("http://www.opennet.ru");
+
+
+
+
+//        try {
+//            REQUEST_HOLDER.set(filtRequest);
+//            HttpServletResponse wrappedResponse = new XporterHTTPResponseWrapper(filtResponse);
+//            RESPONSE_HOLDER.set(wrappedResponse);
+//
+//            chain.doFilter(request, wrappedResponse);
+//        } finally {
+//            REQUEST_HOLDER.remove();
+//            RESPONSE_HOLDER.remove();
+//        }
 
         log.warn(" == filtering ==");
 
-        //continue the request
-//        chain.doFilter(request,response);
+//        continue the request
+        chain.doFilter(request,response);
+
     }
 
 

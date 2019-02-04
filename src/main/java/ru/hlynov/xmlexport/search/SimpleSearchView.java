@@ -64,64 +64,63 @@ public class SimpleSearchView extends AbstractSearchRequestView {
     @Override
     public void writeSearchResults(SearchRequest searchRequest, SearchRequestParams searchRequestParams, Writer writer) throws SearchException {
 
-        HttpServletResponse response = SearchRequestInterceptor.getResponse();
-        HttpServletRequest request = SearchRequestInterceptor.getRequest();
-
-
-
-        String filePath = "/home/alex/123.xlsx";
-        File downloadFile = new File(filePath);
-        try {
-            FileInputStream inStream = new FileInputStream(downloadFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        response.setContentType("application/octet-stream");
-        response.setContentLength((int) downloadFile.length());
-
-        // forces download
-//        String headerKey = "Content-Disposition";
-//        String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
-//        response.addHeader("Content-Disposition", String.format("attachment;filename=\"%s\"", downloadFile.getName()));
-        response.addHeader("Content-Disposition", "attachment;filename=\"" + downloadFile.getName() + "\"");
-
-
-        FileInputStream inStream = null;
-        try {
-            inStream = new FileInputStream(downloadFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-        // obtains response's output stream
-        OutputStream outStream = null;
-        try {
-            outStream = response.getOutputStream();
-            byte[] buffer = new byte[4096];
-            int bytesRead = -1;
-
-            while ((bytesRead = inStream.read(buffer)) != -1) {
-                outStream.write(buffer, 0, bytesRead);
-            }
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                inStream.close();
-                outStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-
+//        HttpServletResponse response = SearchRequestInterceptor.getResponse();
+//        HttpServletRequest request = SearchRequestInterceptor.getRequest();
+//
+//
+//
+//        String filePath = "/home/alex/123.xlsx";
+//        File downloadFile = new File(filePath);
+//        try {
+//            FileInputStream inStream = new FileInputStream(downloadFile);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        response.setContentType("application/octet-stream");
+//        response.setContentLength((int) downloadFile.length());
+//
+//        response.setHeader("Content-Disposition", "attachment; filename=\"" + downloadFile.getName() + "\"");
+//
+//        log.warn("attachment; filename=\"" + downloadFile.getName() + "\"");
+//
+//
+//        FileInputStream inStream = null;
+//        try {
+//            inStream = new FileInputStream(downloadFile);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//
+//
+//        // obtains response's output stream
+//        OutputStream outStream = null;
+//        try {
+//            outStream = response.getOutputStream();
+//            byte[] buffer = new byte[4096];
+//            int bytesRead = -1;
+//
+//            while ((bytesRead = inStream.read(buffer)) != -1) {
+//                outStream.write(buffer, 0, bytesRead);
+//            }
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                inStream.close();
+////                outStream.close();
+//                outStream.flush();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
+//
+//
 
 
 //        byte[] finalResult = result.convert(processParams);
